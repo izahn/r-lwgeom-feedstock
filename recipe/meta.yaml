@@ -23,6 +23,7 @@ build:
 
 requirements:
   build:
+    - proj  # [not win]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('cxx') }}            # [not win]
@@ -43,7 +44,7 @@ requirements:
     - r-rcpp
     - r-sf >=0.9_3
     - r-units
-    - proj
+    - proj  # [not win]
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
