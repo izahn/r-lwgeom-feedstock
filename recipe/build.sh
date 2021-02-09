@@ -4,7 +4,8 @@ set -o errexit -o pipefail
 export CPPFLAGS="${CPPFLAGS} -Wl,-rpath,${PREFIX}/lib"
 # This is just to get around a configure failure when trying to link to gdal.	  ${R} CMD INSTALL --build .
 if [[ ${target_platform} == osx-64 ]]; then
-  export CXX="${CXX} --std=c++14 -Wl,-rpath,${PREFIX}/lib -DPOSTGIS_PROJ_VERSION=71"
+  LIBRARY_PATH=${PREFIX}/lib
+  export CXX="${CXX} --std=c++14 -Wl,-rpath,${PREFIX}/lib"
 fi
 
 if [[ ${target_platform} =~ linux.* ]] || [[ ${target_platform} == win-32 ]] || [[ ${target_platform} == win-64 ]] || [[ ${target_platform} == osx-64 ]]; then
