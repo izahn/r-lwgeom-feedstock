@@ -3,3 +3,6 @@ bot:
 provider:
   win: azure
 conda_forge_output_validation: true
+azure:
+  upload_packages: false
+  store_build_artifacts: true  
